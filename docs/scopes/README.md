@@ -22,7 +22,7 @@ Representation of an account that is mappable to a human.
 
 ##### Action Classes
 |Name|Endpoints|
-|--- |---        |
+|--- |---      |
 |`create`|`POST /api/v1/user`|
 |`read`|`GET /api/v1/user`, `GET /api/v1/user/:id`|
 |`update`|`PUT /api/v1/user/:id`|
@@ -34,7 +34,7 @@ Representation of an account that is mappable to an application.
 
 ##### Action Classes
 |Name|Endpoints|
-|--- |---        |
+|--- |---      |
 |`create`|`POST /api/v1/client`|
 |`read`|`GET /api/v1/client/:id`|
 |`search`|`GET /api/v1/client`|
@@ -44,8 +44,10 @@ Representation of an account that is mappable to an application.
 
 #### `group`
 Representation of a set of accounts and permissions assigned to each.
+
+##### Action Classes
 |Name|Endpoints|
-|--- |---        |
+|--- |---      |
 |`create`|`POST /api/v1/group`|
 |`read`|`GET /api/v1/group`, `GET /api/v1/group/:id`|
 |`update`|`PUT /api/v1/group/:id`|
@@ -54,8 +56,6 @@ Representation of a set of accounts and permissions assigned to each.
 
 #### `tag`
 Representation of a group of `document` resource types.
-
-##### Action Classes
 
 #### `document`
 Representation of a database record with an associated MIME type.
