@@ -1,5 +1,4 @@
 ## Scopes
-
 StellaDMS uses scopes to define access levels granted to a specific `user` or `client`.
 A scope is a combination of a resource type, action class, and optionally a resource identifier.
 Each resource type has a defined set of action classes, and optionally those action classes
@@ -7,18 +6,21 @@ can be specific to a resource. Scopes take the format of:
 ```
 <RESOURCE_TYPE>:<ACTION_CLASS>[:<RESOURCE_ID>]
 ```
-For example, an account that is given a `user:create` scope can create `user` resource 
+For example, an account that is given a `user:read` scope can read `user` resource 
 types in the system through the User API. However, an account that is given a 
 `user:read:bdfoster` scope can only get the information of a particular `user`
-(in this case, the user with an ID of `bdfoster`).
+(in this case, the user with an ID of `bdfoster`). If an account has both `user:read` and 
+`user:read:bdfoster` scopes, the less-restrictive scope prevails (i.e.: `user:read`), meaning
+that the account can read any `user` account's data.
 
-All API endpoints are associated with a particular scope, and resource types
-will never take a plural form. Scopes which map to an endpoint containing `:id`
+All API endpoints are associated with a particular scope. Scopes which map to an endpoint containing `:id`
 will respect the optional resource identifier (`RESOURCE_ID`, the third section in the scope).
+
+A wildcard (`*`) can also be used to define a scope encompassing *all* action classes.
 
 ### Resource Types
 #### `user`
-Representation of an account that is mappable to a human.
+Representation of an account that is mappable to a human. Associated with the 
 
 ##### Action Classes
 |Name|Endpoints|
