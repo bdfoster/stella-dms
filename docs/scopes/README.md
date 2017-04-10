@@ -9,14 +9,16 @@ can be specific to a resource. Scopes take the format of:
 For example, an account that is given a `user:read` scope can read `user` resource 
 types in the system through the User API. However, an account that is given a 
 `user:read:bdfoster` scope can only get the information of a particular `user`
-(in this case, the user with an ID of `bdfoster`). If an account has both `user:read` and 
+(in this case, the user with an ID of `bdfoster`). This is because if a resource identifier
+is not given, it assumes a wildcard (`*`). If an account has both `user:read` and 
 `user:read:bdfoster` scopes, the less-restrictive scope prevails (i.e.: `user:read`), meaning
 that the account can read any `user` account's data.
 
 All API endpoints are associated with a particular scope. Scopes which map to an endpoint containing `:id`
 will respect the optional resource identifier (`RESOURCE_ID`, the third section in the scope).
 
-A wildcard (`*`) can also be used to define a scope encompassing *all* action classes.
+A wildcard (`*`) can also be used to define a scope encompassing *all* action classes. For example,
+a scope defined as `user:*` 
 
 ### Resource Types
 #### `user`
