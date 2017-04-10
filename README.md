@@ -27,4 +27,5 @@ Contributions in the form of code, ideas, or bug reports are always welcome.
   * `admin`: Administrators of the system are given this `group`. Only `user` accounts can be assigned this
     group. Users of this group can create, manipulate, or destroy any `resource` type by default.
 
-Resource types are documented [here](docs/resource-types.md)
+## Documentation
+[Scopes](docs/scopes): An explaination of how scopes work in StellaDMS.
