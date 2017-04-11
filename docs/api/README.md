@@ -1,60 +1,68 @@
 # API
 StellaDMS uses a RESTful API for external access to all resources in the system. Below, 
-you'll find an overview of all system 
+you'll find a categorical overview of all the endpoints available and some helpful information for each.
 
-### Users API
-**Resource Type:** `user`
+### Authentication/Authorization
+**Description:** Authenticate and authorize accounts.
 
-|HTTP Method|Endpoint                      |Function                                         |Action Class(es)|
+|HTTP Method|Endpoint                      |Function                                         |Scope(s)        |
 |-----------|------------------------------|-------------------------------------------------|----------------|
-|`POST`     |`/api/v1/users`               |Create a user account.                           |`create`        |
-|`GET`      |`/api/v1/users/:id`           |Get a specific user account.                     |`read`          |
-|`GET`      |`/api/v1/users`               |Get a list of users, with optional filtering.    |`search`        |
-|`PATCH`    |`/api/v1/users/:id`           |Update a specific user account.                  |`update`        |
-|`DELETE`   |`/api/v1/users/:id`           |Delete a specific user account.                  |`delete`        |
-|`POST`     |`/api/v1/auth/user`           |Authenticate/Authorize a user account.           |`auth`          |
+|`POST`     |`/api/v1/auth`                |Authenticate/Authorize account.                  |`user:auth`\*   |
+|`DELETE`   |`/api/v1/auth`                |Invalidate previous token.                       |`user:auth`\*   |
 
+\*: *This scope is only required when request is for a user account. No scope required for a client account.*
+### Users
+**Description:** Manage and configure user accounts.
 
-### Clients API
-**Resource Type:** `client`
-
-|HTTP Method|Endpoint                      |Function                                         |Action Class(es)|
+|HTTP Method|Endpoint                      |Function                                         |Scope(s)        |
 |-----------|------------------------------|-------------------------------------------------|----------------|
-|`POST`     |`/api/v1/clients`             |Create a client account.                         |`create`        |
-|`GET`      |`/api/v1/clients/:id`         |Get a specific client account.                   |`read`          |
-|`GET`      |`/api/v1/clients`             |Get a list of clients, with optional filtering.  |`search`        |
-|`PATCH`    |`/api/v1/clients/:id`         |Update a specific client account.                |`update`        |
-|`DELETE`   |`/api/v1/clients/:id`         |Delete a specific client account.                |`delete`        |
+|`POST`     |`/api/v1/users`               |Create a user account.                           |`user:create`   |
+|`GET`      |`/api/v1/users/:id`           |Get a specific user account.                     |`user:read`     |
+|`GET`      |`/api/v1/users`               |Get a list of users, with optional filtering.    |`user:search`   |
+|`PATCH`    |`/api/v1/users/:id`           |Update a specific user account.                  |`user:update`   |
+|`DELETE`   |`/api/v1/users/:id`           |Delete a specific user account.                  |`user:delete`   |
 
-### Tags API
-**Resource Type:** `tag`
 
-|HTTP Method|Endpoint                      |Function                                         |Action Class(es)|
+### Clients
+**Description:** Manage and configure client accounts.
+
+|HTTP Method|Endpoint                      |Function                                         |Scope(s)        |
 |-----------|------------------------------|-------------------------------------------------|----------------|
-|`POST`     |`/api/v1/tags`                |Create a tag.                                    |`create`        |
-|`GET`      |`/api/v1/tags/:id`            |Get a specific tag and all linked documents.     |`read`          |
-|`GET`      |`/api/v1/tags`                |Get a list of tags, with optional filtering.     |`search`        |
-|`PATCH`    |`/api/v1/tags/:id`            |Update a specific tag's data.                    |`update`        |
-|`DELETE`   |`/api/v1/tags/:id`            |Delete a specific tag.                           |`delete`        |
+|`POST`     |`/api/v1/clients`             |Create a client account.                         |`client:create` |
+|`GET`      |`/api/v1/clients/:id`         |Get a specific client account.                   |`client:read`   |
+|`GET`      |`/api/v1/clients`             |Get a list of clients, with optional filtering.  |`client:search` |
+|`PATCH`    |`/api/v1/clients/:id`         |Update a specific client account.                |`client:update` |
+|`DELETE`   |`/api/v1/clients/:id`         |Delete a specific client account.                |`client:delete` |
 
-### Documents API
-**Resource Type:** `doc`
+### Tags
+**Description:** Manage and configure document tags.
 
-|HTTP Method|Endpoint                      |Function                                         |Action Class(es)|
+|HTTP Method|Endpoint                      |Function                                         |Scope(s)        |
 |-----------|------------------------------|-------------------------------------------------|----------------|
-|`POST`     |`/api/v1/docs`                |Create a document.                               |`create`        |
-|`GET`      |`/api/v1/docs/:id`            |Get a specific document's data.                  |`read`          |
-|`GET`      |`/api/v1/docs`                |Get a list of documents, with optional filtering.|`search`        |
-|`PATCH`    |`/api/v1/docs/:id`            |Update a specific document's data.               |`update`        |
-|`DELETE`   |`/api/v1/docs/:id`            |Delete a specific document.                      |`delete`        |
+|`POST`     |`/api/v1/tags`                |Create a tag.                                    |`tag:create`    |
+|`GET`      |`/api/v1/tags/:id`            |Get a specific tag and all linked documents.     |`tag:read`      |
+|`GET`      |`/api/v1/tags`                |Get a list of tags, with optional filtering.     |`tag:search`    |
+|`PATCH`    |`/api/v1/tags/:id`            |Update a specific tag's data.                    |`tag:update`    |
+|`DELETE`   |`/api/v1/tags/:id`            |Delete a specific tag.                           |`tag:delete`    |
 
-### Groups API
-**Resource Type:** `group`
+### Documents
+**Description:** Create and manage documents.
 
-|HTTP Method|Endpoint                      |Function                                         |Action Class(es)|
+|HTTP Method|Endpoint                      |Function                                         |Scope(s)        |
 |-----------|------------------------------|-------------------------------------------------|----------------|
-|`POST`     |`/api/v1/groups`              |Create a group.                                  |`create`        |
-|`GET`      |`/api/v1/groups/:id`          |Get a specific groups's data.                    |`read`          |
-|`GET`      |`/api/v1/groups`              |Get a list of groups, with optional filtering.   |`search`        |
-|`PATCH`    |`/api/v1/groups/:id`          |Update a specific group's data.                  |`update`        |
-|`DELETE`   |`/api/v1/groups/:id`          |Delete a specific document.                      |`delete`        |
+|`POST`     |`/api/v1/docs`                |Create a document.                               |`doc:create`    |
+|`GET`      |`/api/v1/docs/:id`            |Get a specific document's data.                  |`doc:read`      |
+|`GET`      |`/api/v1/docs`                |Get a list of documents, with optional filtering.|`doc:search`    |
+|`PATCH`    |`/api/v1/docs/:id`            |Update a specific document's data.               |`doc:update`    |
+|`DELETE`   |`/api/v1/docs/:id`            |Delete a specific document.                      |`doc:delete`    |
+
+### Groups
+**Description:** Manage and configure account groups.
+
+|HTTP Method|Endpoint                      |Function                                         |Scope(s)        |
+|-----------|------------------------------|-------------------------------------------------|----------------|
+|`POST`     |`/api/v1/groups`              |Create a group.                                  |`group:create`  |
+|`GET`      |`/api/v1/groups/:id`          |Get a specific groups's data.                    |`group:read`    |
+|`GET`      |`/api/v1/groups`              |Get a list of groups, with optional filtering.   |`group:search`  |
+|`PATCH`    |`/api/v1/groups/:id`          |Update a specific group's data.                  |`group:update`  |
+|`DELETE`   |`/api/v1/groups/:id`          |Delete a specific document.                      |`group:delete`  |
