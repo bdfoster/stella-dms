@@ -1,5 +1,5 @@
-# Person
-A reference to a human.
+# Profile
+A reference to a human, which can be related to a Document.
 
 ### Properties
 |Key|Type|Description|Required|
