@@ -1,5 +1,5 @@
-# Person Model
-A person is a reference to a human.
+# Person
+A reference to a human.
 
 ### Properties
 |Key|Type|Description|Required|
