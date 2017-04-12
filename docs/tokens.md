@@ -37,6 +37,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
 |`exp`|`number`|The epoch timestamp with respect to when the JWT will expire. Default: 4 hours after `iat`.|
 |`jti`|`string`|The token's identifier, which is tied to a database record.|
 
+**NOTE:** Other claims can be added to the payroll depending on the `scope` field for a request. These are defaults.
+
 A typical decoded JWT payload looks like this:
 ```json
 {
