@@ -1,0 +1,22 @@
+{
+  "name": "stella-dms",
+  "version": "0.0.0",
+  "description": "Open Source Document Management System (DMS)",
+  "main": "src/index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stella-dms/stella-dms.git"
+  },
+  "author": "Brian D. Foster <bdfoster89@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stella-dms/stella-dms/issues"
+  },
+  "homepage": "https://github.com/stella-dms/stella-dms#readme"
+}
