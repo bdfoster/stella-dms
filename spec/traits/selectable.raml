@@ -1,0 +1,9 @@
+#%RAML 1.0 Trait
+queryParameters:
+  fields:
+    description: |
+      The <<resourcePath|!singularize>> fields to return. `id` is always returned.
+
+      You can return the following keys: createdAt, updatedAt, <<fieldsList>>
+    type: array
+    items: string

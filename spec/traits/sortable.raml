@@ -1,0 +1,11 @@
+#%RAML 1.0 Trait
+queryParameters:
+  sort:
+    description: |
+      The order of the results. By default, the results are returned in descending order based on
+      creation timestamp (`createdAt`). You can specify a different order by using a `+` (ascending) or `-`
+      (descending) in front of the each valid field key. You can sort results by multiple keys by
+      separating each combination of `+` or `-` and the field key with a comma.
+
+      You can order based on the following keys: createdAt, updatedAt, <<fieldsList>>.
+    type: string

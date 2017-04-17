@@ -1,0 +1,46 @@
+#%RAML 1.0
+#baseUri: /api/{version}
+baseUri: https://mocksvc.mulesoft.com/mocks/bfec08f2-e8a7-4e1a-b87e-e478b9855058/api/{version}
+title: StellaDMS API
+version: v1
+mediaType: [
+  application/json
+]
+
+traits: 
+  pageable: !include traits/pageable.raml
+  selectable: !include traits/selectable.raml
+  sortable: !include traits/sortable.raml
+
+securitySchemes:
+  jwt:
+    type: x-stella-jwt
+    describedBy:
+      headers:
+        Authorization:
+          description: |
+            Used to send the JWT.
+          type: string
+      responses:
+        401:
+          description: |
+            Invalid token or token has expired. Re-authenticating should fix the issue.
+    settings:
+      scopes: [
+        person:create,
+        person:read,
+        person:update,
+        person:delete
+      ] 
+
+types:
+  Entity: !include types/Entity.raml
+  Person: !include types/Person.raml
+  
+resourceTypes:
+  collection: !include resourceTypes/collection.raml
+  entity: !include resourceTypes/entity.raml
+
+/people:
+  type: collection
+        

@@ -1,0 +1,20 @@
+#%RAML 1.0 ResourceType
+description: Operations on the collection of available <<resourcePathName>> in StellaDMS.
+get:
+  is: [
+    pageable
+  ]
+  description: Get a list of <<resourcePathName>>.
+  responses:
+    200:
+      body:
+        type: array
+        items: <<resourcePathName|!singularize|!uppercamelcase>>
+post:
+  description: Create a new <<resourcePathName|!singularize>>.
+  body:
+    type: <<resourcePathName|!singularize|!uppercamelcase>>
+  responses:
+    200:
+      body:
+        type: <<resourcePathName|!singularize|!uppercamelcase>>, Entity
