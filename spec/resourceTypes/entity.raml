@@ -1,0 +1,9 @@
+#%RAML 1.0 ResourceType
+description: Operations on a particular <<resourcePathName|!singularize>> in StellaDMS.
+get:
+  description: Get a particular <<resourcePathName|!singularize>> in StellaDMS.
+  responses:
+    200:
+      body:
+        application/json:
+          type: [<<resourcePathName|!singularize|!uppercamelcase>>, Entity]
