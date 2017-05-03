@@ -1,5 +1,7 @@
 # StellaDMS
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bdfoster/stella-dms.svg)](https://greenkeeper.io/)
+
 StellaDMS is an open source 
 [document management system (DMS)](https://en.wikipedia.org/wiki/Document_management_system)
 built with Node.js. Specifically, it allows users to track, manage, and store digital
